@@ -1,0 +1,161 @@
+/* Commission page layout */
+.commission-page {
+  width: 95%;
+  max-width: 1400px;
+}
+
+/* Make main content feel more full-width */
+.commission-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Top text section */
+.commission-content .topbar h1 {
+  color: #ff4747;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.commission-content .topbar p {
+  color: #ffb4a2;
+  font-size: 1.1rem;
+}
+
+/* 4-column layout */
+.commission-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+/* Each column */
+.commission-column {
+  background: #3b0f0f;
+  border-radius: 15px;
+  padding: 20px;
+  border: 2px solid #551111;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.commission-column:hover {
+  transform: translateY(-5px);
+  border-color: #ff4747;
+}
+
+.commission-column h2 {
+  color: #ff6f61;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.commission-column p {
+  color: #ffb4a2;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.commission-column img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* STATUS BAR */
+.commission-status {
+  margin-top: 30px;
+  background: linear-gradient(90deg, #2c0d0d, #551111, #2c0d0d);
+  border: 2px solid #ff4747;
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 20px rgba(255, 71, 71, 0.2);
+}
+
+/* Align dot + text */
+.status-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Blinking status dot */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: blink 1.4s infinite alternate;
+}
+
+/* Closed (red) */
+.status-dot.closed {
+  background: #ff3d3d;
+  box-shadow: 0 0 10px rgba(255, 71, 71, 0.8);
+}
+
+.status-value.closed {
+  color: #ff4747;
+}
+
+/* Open (green) — just change class when needed */
+.status-dot.open {
+  background: #21ff21;
+  box-shadow: 0 0 10px rgba(33, 255, 33, 0.8);
+}
+
+.status-value.open {
+  color: #21ff21;
+}
+
+/* Closed (red) */
+.status-dot.progress {
+  background: #3dd2ff;
+  box-shadow: 0 0 10px rgba(71, 254, 255, 0.8);
+}
+
+.status-value.progress {
+  color: #53c8f7;
+}
+
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* Text styling */
+.status-text {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #ffb4a2;
+  font-weight: 600;
+}
+
+.status-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.contact-line {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #ffaa8a;
+}
+
+
+/* Responsive behavior */
+@media screen and (max-width: 1024px) {
+  .commission-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .commission-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,289 @@
+/* ==============================
+   Global layout
+============================== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a0003;
+  color: #fff;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 100vh;
+  height: auto;
+}
+
+.main-layout {
+  display: block;
+  width: 100%;
+}
+
+
+/* ==============================
+   Top Dashboard Navigation
+============================== */
+.top-dashboard-nav {
+  width: 100%;
+  background: #2c0d0d;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 3px solid #40000b;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.top-dashboard-nav a {
+  background: #3b0f0f;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: 0.3s;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.top-dashboard-nav a:hover,
+.top-dashboard-nav a.active {
+  background: #ff4747;
+  box-shadow: 0 4px 10px rgba(255, 71, 71, 0.4);
+  transform: translateY(-3px);
+}
+
+
+/* ==============================
+   Projects layout
+============================== */
+.projects-container {
+  display: flex;
+  flex: 1;
+  height: auto;
+  min-height: 100vh;
+  flex-wrap: nowrap;
+}
+
+
+
+/* ==============================
+   Project content area
+============================== */
+.content {
+  flex-grow: 1;
+  padding: 4rem 6rem;
+  display: block;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-width: calc(100% - 100px);
+}
+
+/* ==============================
+   Individual project sections
+============================== */
+section.project-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5rem;
+}
+
+/* ==============================
+   Banner
+============================== */
+.project-banner {
+  width: 100%;
+  max-width: 1200px; /* keep it aligned with your content */
+  overflow: hidden;  /* ensures cropping doesn't break layout */
+  margin: 0 auto;
+  border-radius: 12px; /* optional for style */
+}
+
+.project-banner img {
+  width: 100%;
+  height: 200px; /* bigger banner */
+  object-fit: cover;
+  object-position: center; /* ensures focus remains centered */
+  display: block;
+}
+
+/* ==============================
+   Headings and text
+============================== */
+h1 {
+  font-size: 3rem;
+  color: #ff6f61;
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ff9f91;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+blockquote {
+  font-style: italic;
+  color: #f5c2c2;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ==============================
+   Media row (images + video)
+============================== */
+.project-media-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
+}
+
+.project-media-row img,
+.project-media-row video,
+.project-media-row iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #ff6f61;
+}
+
+/* ==============================
+   Essay text
+============================== */
+.project-essay {
+  width: 100%;
+  max-width: 1200px;
+  line-height: 1.8;
+  color: #f8dcdc;
+  text-align: justify;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.project-essay p {
+  margin-bottom: 1rem;
+}
+
+.project-single-image {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border: 2px solid #ff6f61;
+}
+
+/* ==============================
+   Buttons
+============================== */
+button {
+  background-color: #ff6f61;
+  border: none;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e63946;
+}
+
+.videoCaption {
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
+}
+
+/* ==============================
+   Responsive Media Queries
+============================== */
+
+/* Large tablets / laptops */
+@media screen and (max-width: 1024px) {
+  .content {
+    padding: 3rem 4rem;
+  }
+  .side-nav {
+    width: 20%;
+  }
+  .nav-item img {
+    max-width: 250px;
+  }
+  .project-media-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets / Small Laptops */
+@media screen and (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  .main-sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    height: auto;
+  }
+  .projects-container {
+    flex-direction: column;
+  }
+  .side-nav {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+    border-right: none;
+    border-bottom: 2px solid #40000b;
+  }
+  .nav-item img {
+    max-width: 180px;
+    height: auto;
+  }
+  .content {
+    padding: 2rem 2rem;
+    max-width: 100%;
+  }
+  .project-media-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .nav-item img {
+    max-width: 120px;
+  }
+  .content {
+    padding: 1rem 1rem;
+  }
+  button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
