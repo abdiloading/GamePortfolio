@@ -23,8 +23,24 @@ body {
   background: #2c0d0d;
   width: 90%;
   max-width: 1200px;
+
+  height: 67vh; 
   border-radius: 20px;
-  overflow: hidden;
+
+  overflow: hidden; 
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+.dashboard1 {
+  display: flex;
+  flex-direction: row;
+  background: #2c0d0d;
+  width: 90%;
+  max-width: 1200px;
+
+  height: 57vh; 
+  border-radius: 20px;
+
+  overflow: hidden; 
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
