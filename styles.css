@@ -93,6 +93,8 @@ body {
   padding: 40px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
   gap: 30px;
 }
 
