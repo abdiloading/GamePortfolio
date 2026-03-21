@@ -363,23 +363,77 @@ body {
   display: inline-block;
 }
 
-/* --- THE FLEXIBLE MOBILE FIX --- */
-/* This triggers when the screen is too narrow for two columns */
-@media screen and (max-width: 900px) {
-  .grid-container {
-    /* Switches to 1 column so text isn't squished */
-    grid-template-columns: 1fr; 
+/* --- UNIVERSAL LAYOUT (PC & MOBILE) --- */
+@media screen and (max-width: 768px) {
+  /* Keep PC Row Layout */
+  .dashboard, .dashboard1 {
+    flex-direction: row !important; 
+    height: 95vh;
+    width: 98%;
   }
-  
-  /* Forces all cards to take full width of the dashboard on mobile */
-  .info-card {
-    grid-column: span 1 !important; 
-    padding: 15px;
-  }
-}
 
-@media screen and (max-width: 480px) {
-  .info-card h3 {
+  /* Force Sidebar to the Top-Left */
+  .sidebar {
+    width: 75px; 
+    padding: 15px 0;
+    justify-content: flex-start !important; /* Forces items to stay at the top */
+    gap: 15px;
+    flex-shrink: 0; /* Prevents sidebar from squishing */
+  }
+
+  /* Shrink Nav Buttons for Mobile */
+  .sidebar nav a {
+    width: 65px;
+    font-size: 9px;
+    padding: 8px 0;
+    border-radius: 8px;
+  }
+
+  .sidebar .logo1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  /* Content area adjustments */
+  .content {
+    padding: 15px;
+    gap: 15px;
+    overflow-y: auto;
+  }
+
+  /* Fix the Profile/Intro Section */
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .profile-pic {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Ensure Game Grid and Text Cards stack */
+  .grid-container, 
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .topbar h1, .page-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* Slider Arrows Adjustment for Mobile */
+  .slider-nav {
+    width: calc(100% - 75px); /* Subtract sidebar width */
+    padding: 0 5px;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
     font-size: 14px;
   }
 }
