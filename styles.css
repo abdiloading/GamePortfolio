@@ -272,27 +272,6 @@ body {
 }
 
 
-/* Responsive */
-@media screen and (max-width: 1024px) {
-  .content { padding: 30px; }
-  .project-grid { gap: 15px; }
-}
-
-@media screen and (max-width: 768px) {
-  .dashboard { flex-direction: column; }
-  .sidebar { width: 100%; flex-direction: row; justify-content: space-around; padding: 10px 0; }
-  .sidebar nav ul { flex-direction: row; gap: 10px; }
-  .sidebar nav a { width: auto; padding: 8px 10px; font-size: 13px; }
-  .project-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-}
-
-@media screen and (max-width: 480px) {
-  .topbar h1 { font-size: 22px; }
-  .intro { padding: 15px; flex-direction: column; align-items: center; }
-  .profile-pic { width: 100px; height: 100px; }
-  .project-grid { grid-template-columns: 1fr; gap: 10px; }
-}
-
 
 /* Container Spacing */
 .get-to-know {
@@ -363,77 +342,91 @@ body {
   display: inline-block;
 }
 
-/* --- UNIVERSAL LAYOUT (PC & MOBILE) --- */
+/* =========================================
+   4. MOBILE STYLES (Overrides)
+   ========================================= */
 @media screen and (max-width: 768px) {
-  /* Keep PC Row Layout */
+  /* 1. Ensure the body doesn't force everything to the center of the screen */
+  body {
+    align-items: flex-start !important; 
+    padding-top: 20px;
+  }
+
+  /* 2. Force the dashboard to align to the top */
   .dashboard, .dashboard1 {
-    flex-direction: row !important; 
-    height: 95vh;
-    width: 98%;
+    align-self: flex-start;
+    margin-top: 0;
   }
 
-  /* Force Sidebar to the Top-Left */
+  /* 3. Force Sidebar items to the very top of the bar */
   .sidebar {
-    width: 75px; 
+    justify-content: flex-start !important; 
+    padding-top: 30px !important; /* Adjust this to line up with your header text */
+    height: 100%;
+  }
+
+  /* 4. Ensure the navigation list doesn't have centered margins */
+  .sidebar nav ul {
+    justify-content: flex-start !important;
+    align-items: center;
+    width: 100%;
+  }
+
+  
+  /* Keep Row Layout - NO Column Stack */
+  .dashboard, .dashboard1 {
+    flex-direction: row !important;
+    width: 98%;
+    height: 95vh;
+    margin: 10px;
+  }
+
+  /* Fixed Sidebar at Top-Left */
+  .sidebar {
+    width: 70px; /* Thinner for mobile */
     padding: 15px 0;
-    justify-content: flex-start !important; /* Forces items to stay at the top */
-    gap: 15px;
-    flex-shrink: 0; /* Prevents sidebar from squishing */
+    justify-content: flex-start !important; /* Force icons to the TOP */
+    gap: 10px;
   }
 
-  /* Shrink Nav Buttons for Mobile */
+  .sidebar .logo1 { font-size: 20px; }
+
   .sidebar nav a {
-    width: 65px;
-    font-size: 9px;
-    padding: 8px 0;
-    border-radius: 8px;
+    width: 60px;
+    font-size: 9px; /* Shorter text for small buttons */
+    padding: 10px 0;
   }
 
-  .sidebar .logo1 {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-
-  /* Content area adjustments */
+  /* Content area adjustment */
   .content {
-    padding: 15px;
-    gap: 15px;
-    overflow-y: auto;
+    padding: 20px 15px;
+    gap: 20px;
   }
 
-  /* Fix the Profile/Intro Section */
+  /* Stack Intro and Grids */
   .intro {
     flex-direction: column;
     text-align: center;
-    padding: 15px;
-    gap: 15px;
+    padding: 20px;
   }
 
-  .profile-pic {
-    width: 90px;
-    height: 90px;
-  }
+  .profile-pic { width: 100px; height: 100px; }
 
-  /* Ensure Game Grid and Text Cards stack */
-  .grid-container, 
-  .project-grid {
-    grid-template-columns: 1fr !important;
+  .grid-container, .project-grid {
+    grid-template-columns: 1fr !important; /* Single column for mobile */
   }
 
   .topbar h1, .page-title {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
   }
 
-  /* Slider Arrows Adjustment for Mobile */
+  /* Sticky Navigation Arrows for Shipped Games */
   .slider-nav {
-    width: calc(100% - 75px); /* Subtract sidebar width */
-    padding: 0 5px;
-  }
-
-  .nav-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
+    position: fixed;
+    top: 50%;
+    left: 70px; /* Start after sidebar */
+    width: calc(100% - 70px);
+    z-index: 100;
   }
 }
