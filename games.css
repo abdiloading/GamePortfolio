@@ -98,3 +98,62 @@
 .full-width-media { grid-column: 1 / -1; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@media screen and (max-width: 768px) {
+    /* 1. Shrink the Hero Header so it's not too tall */
+    .game-hero {
+        height: 250px;
+        padding: 20px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem; /* Scale down the big title */
+    }
+
+    .hero-desc {
+        font-size: 0.85rem;
+        max-width: 100%;
+    }
+
+    /* 2. Make Stats Bar scrollable if names are too long */
+    .stats-bar {
+        padding: 10px;
+        flex-wrap: wrap; /* Allows items to wrap if they don't fit in one row */
+        gap: 10px;
+    }
+
+    .stat strong {
+        font-size: 0.8rem;
+    }
+
+    /* 3. FLATTEN THE SPLIT LAYOUT (Video/Image on top, Text below) */
+    .split-intro {
+        grid-template-columns: 1fr !important; /* Stack them */
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .split-text h2 {
+        font-size: 1.5rem;
+    }
+
+    /* 4. FLATTEN THE MEDIA GRID (Everything becomes 1 column) */
+    .media-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 20px 30px;
+        gap: 15px;
+    }
+
+    /* 5. FIX THE NAVIGATION ARROWS */
+    /* On mobile, arrows often block the text. We move them slightly */
+    .slider-nav {
+        padding: 0 5px;
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        background: rgba(28, 6, 6, 0.8); /* Darker for better visibility */
+    }
+}
